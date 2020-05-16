@@ -35,8 +35,8 @@ class Beat {
 
   play() {
     if (
-      player.metronome.x >= this.x &&
-      player.metronome.x <= this.x + this.width &&
+      metronome.x >= this.x &&
+      metronome.x <= this.x + this.width &&
       !this.playedThisLoop
     ) {
       this.playedThisLoop = true;

@@ -3,11 +3,7 @@
 class Player {
   constructor() {
     //temporary constructor for Track
-    this.tracks = [new Track(100, 8), new Track(200, 12)];
-
-    const start = this.tracks[0].offsetX;
-    const end = start + this.tracks[0].width;
-    this.metronome = new Metronome(start, end);
+    this.tracks = [new Track(100, 4), new Track(200, 16)];
   }
 
   show() {
@@ -32,17 +28,5 @@ class Player {
     this.tracks.forEach((track) => {
       track.reset();
     });
-    this.metronome.reset();
-  }
-
-  //run when something affecting metronome is done
-  updateMetronome() {
-    //count the first tracks beats as quarter notes.
-    const timeSignature = this.tracks[0].beats.length;
-    const bps = bpm / 60;
-    const secondsPerLoop = timeSignature / bps;
-    const updateSpeed = this.tracks[0].width / (secondsPerLoop * FPS);
-
-    this.metronome.updateSpeed = updateSpeed;
   }
 }

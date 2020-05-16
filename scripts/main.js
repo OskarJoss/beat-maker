@@ -1,15 +1,15 @@
 "use_strict";
 
-const FPS = 30;
+const FPS = 60;
 let assets = [];
 
 let isPlaying = false;
-let bpm = 150;
-
+let bpm = 140;
 let selectedSoundIcon;
 
 //instanses of classes
 let player;
+let metronome;
 let soundIcons;
 
 //maby change this to an array and fill it in setupColors
@@ -19,9 +19,6 @@ let blue;
 
 //find nicer way of loading more assets later
 const setupAssets = () => {
-  const sound1 = loadSound("./../assets/sounds/hihat.wav");
-  const sound2 = loadSound("./../assets/sounds/clap.wav");
-  const sound3 = loadSound("./../assets/sounds/boom.wav");
   assets = {
     sound1: { audio: sound1, name: "hihat" },
     sound2: { audio: sound2, name: "clap" },
@@ -68,7 +65,7 @@ function setup() {
   setupAssets();
 
   player = new Player();
-  player.updateMetronome();
+  metronome = new Metronome();
 }
 
 function draw() {
@@ -80,8 +77,9 @@ function draw() {
 
   if (isPlaying) {
     player.play();
-    player.metronome.update();
+    metronome.update();
   } else {
     player.reset();
+    metronome.reset();
   }
 }
