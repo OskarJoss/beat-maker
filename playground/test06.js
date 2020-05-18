@@ -151,7 +151,7 @@ class ProgressBar {
 
   update() {
     //update rate should not be hard coded
-    this.x += 8;
+    this.x += metronomeUpdateSpeed;
     if (this.x >= this.end) {
       track1.beats.forEach((beat) => {
         beat.reset();
@@ -203,7 +203,8 @@ function setup() {
   track1 = new Track(100, 8);
   track2 = new Track(200, 12);
   progressBar = new ProgressBar();
-  metronomeUpdateSpeed = track1.width / 90;
+  metronomeUpdateSpeed = Math.floor(track1.width / 67);
+  console.log(metronomeUpdateSpeed);
 
   setupSoundIcons();
   setupAssets();

@@ -1,50 +1,18 @@
 "use_strict";
 
-const FPS = 30;
+const FPS = 60;
+
 let assets = [];
-
 let isPlaying = false;
-let bpm = 150;
-
+let bpm = 140;
 let selectedSoundIcon;
 
 let playPauseButton;
 
 //instanses of classes
 let player;
+let metronome;
 let soundIcons;
-
-//maby change this to an array and fill it in setupColors
-let red;
-let green;
-let blue;
-
-//find nicer way of loading more assets later
-const setupAssets = () => {
-  const sound1 = loadSound("./../assets/sounds/hihat.wav");
-  const sound2 = loadSound("./../assets/sounds/clap.wav");
-  const sound3 = loadSound("./../assets/sounds/boom.wav");
-  assets = {
-    sound1: { audio: sound1, name: "hihat" },
-    sound2: { audio: sound2, name: "clap" },
-    sound3: { audio: sound3, name: "boom" },
-  };
-};
-
-const setupColors = () => {
-  red = color(255, 0, 0);
-  green = color(0, 255, 0);
-  blue = color(0, 0, 255);
-};
-
-//maby this should be handled by a class instead
-const setupSoundIcons = () => {
-  soundIcons = [
-    new SoundIcon(30, height - 30, 50, "sound1", red),
-    new SoundIcon(85, height - 30, 50, "sound2", green),
-    new SoundIcon(140, height - 30, 50, "sound3", blue),
-  ];
-};
 
 function mousePressed() {
   soundIcons.forEach((soundIcon) => {
@@ -80,6 +48,7 @@ function setup() {
   playPauseButton = createCheckbox("", false);
   playPauseButton.position(width / 2 - 65, height / 2 - 65);
   playPauseButton.mousePressed(togglePlaying);
+  metronome = new Metronome();
 }
 
 function draw() {
@@ -91,8 +60,9 @@ function draw() {
 
   if (isPlaying) {
     player.play();
-    player.metronome.update();
+    metronome.update();
   } else {
     player.reset();
+    metronome.reset();
   }
 }
