@@ -25,7 +25,16 @@ class Beat {
       mouseY <= this.y + this.height &&
       selectedSoundIcon
     ) {
-      this.soundIcons.push(selectedSoundIcon);
+      //check if selectedSoundIcon already has been added, in that case remove it.
+      if (
+        this.soundIcons.find(
+          (soundIcon) => soundIcon.assetKey === selectedSoundIcon.assetKey
+        )
+      ) {
+        this.removeSoundIcon(selectedSoundIcon.assetKey);
+      } else {
+        this.soundIcons.push(selectedSoundIcon);
+      }
     }
   }
 
@@ -36,7 +45,7 @@ class Beat {
       mouseY >= this.y &&
       mouseY <= this.y + this.height
     ) {
-      console.log(this.x);
+      console.log(this.soundIcons);
     }
   }
 
@@ -49,9 +58,17 @@ class Beat {
       this.playedThisLoop = true;
 
       this.soundIcons.forEach((soundIcon) => {
-        assets[soundIcon.assetKey].audio.play();
+        if (assets[soundIcon.assetKey].audio) {
+          assets[soundIcon.assetKey].audio.play();
+        }
       });
     }
+  }
+
+  removeSoundIcon(assetKey) {
+    this.soundIcons = this.soundIcons.filter(
+      (soundIcon) => soundIcon.assetKey !== assetKey
+    );
   }
 
   reset() {
