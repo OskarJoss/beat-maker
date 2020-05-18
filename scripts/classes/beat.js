@@ -30,7 +30,14 @@ class Beat {
   }
 
   shiftClicked() {
-    //for editing maby
+    if (
+      mouseX >= this.x &&
+      mouseX <= this.x + this.width &&
+      mouseY >= this.y &&
+      mouseY <= this.y + this.height
+    ) {
+      console.log(this.x);
+    }
   }
 
   play() {

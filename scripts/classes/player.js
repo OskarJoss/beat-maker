@@ -18,6 +18,12 @@ class Player {
     });
   }
 
+  shiftClicked() {
+    this.tracks.forEach((track) => {
+      track.shiftClicked();
+    });
+  }
+
   play() {
     this.tracks.forEach((track) => {
       track.play();
