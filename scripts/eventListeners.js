@@ -7,3 +7,9 @@ function mousePressed() {
 
   player.clicked();
 }
+
+function keyPressed() {
+  if (keyCode === 32) {
+    isPlaying = !isPlaying;
+  }
+}

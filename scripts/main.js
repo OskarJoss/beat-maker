@@ -24,3 +24,19 @@ function setup() {
   player = new Player();
   metronome = new Metronome();
 }
+
+function draw() {
+  soundIcons.forEach((soundIcon) => {
+    soundIcon.show();
+  });
+
+  player.show();
+
+  if (isPlaying) {
+    player.play();
+    metronome.update();
+  } else {
+    player.reset();
+    metronome.reset();
+  }
+}
