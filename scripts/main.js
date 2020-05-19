@@ -14,20 +14,6 @@ let player;
 let metronome;
 let soundIcons;
 
-function mousePressed() {
-  soundIcons.forEach((soundIcon) => {
-    soundIcon.clicked();
-  });
-
-  player.clicked();
-}
-
-function keyPressed() {
-  if (keyCode === 32) {
-    isPlaying = !isPlaying;
-  }
-}
-
 function togglePlaying() {
   isPlaying = !isPlaying;
 }
@@ -42,7 +28,6 @@ function setup() {
   setupAssets();
 
   player = new Player();
-  player.updateMetronome();
 
   noStroke();
   playPauseButton = createCheckbox("", false);
