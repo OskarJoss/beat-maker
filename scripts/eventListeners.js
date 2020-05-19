@@ -5,7 +5,11 @@ function mousePressed() {
     soundIcon.clicked();
   });
 
-  player.clicked();
+  if (keyIsDown(SHIFT)) {
+    player.shiftClicked();
+  } else {
+    player.clicked();
+  }
 }
 
 function keyPressed() {
