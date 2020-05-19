@@ -1,0 +1,35 @@
+input[type="checkbox"] {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  -webkit-appearance: none;
+  border: 8px solid #ececec;
+  box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5),
+    10px 10px 15px rgba(70, 70, 70, 0.12);
+  text-transform: uppercase;
+  outline: none;
+  background-color: #ececec;
+  color: #7a7a7a;
+  font-size: 2em;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+input[type="checkbox"]::after {
+  font-family: "Font Awesome 5 Free";
+  content: "\f04b ";
+}
+
+input[type="checkbox"]:checked {
+  box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5),
+    10px 10px 15px rgba(70, 70, 70, 0.12),
+    inset -10px -10px 15px rgba(255, 255, 255, 0.5),
+    inset 10px 10px 15px rgba(70, 70, 70, 0.12);
+}
+
+input[type="checkbox"]:checked:after {
+  content: "\f04c ";
+}
