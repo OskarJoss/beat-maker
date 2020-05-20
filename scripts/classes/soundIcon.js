@@ -17,7 +17,11 @@ class SoundIcon {
 
   clicked() {
     if (dist(this.x, this.y, mouseX, mouseY) <= this.size / 2) {
-      selectedSoundIcon = { assetKey: this.assetKey, color: this.color };
+      selectedSoundIcon = {
+        assetKey: this.assetKey,
+        assetName: assets[this.assetKey].name,
+        color: this.color,
+      };
 
       assets[this.assetKey].audio.play();
     }

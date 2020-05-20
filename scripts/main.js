@@ -14,6 +14,10 @@ let player;
 let metronome;
 let soundIcons;
 
+function togglePlaying() {
+  isPlaying = !isPlaying;
+}
+
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
   fill(236, 236, 236);

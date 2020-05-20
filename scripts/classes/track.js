@@ -31,6 +31,12 @@ class Track {
     });
   }
 
+  shiftClicked() {
+    this.beats.forEach((beat) => {
+      beat.shiftClicked();
+    });
+  }
+
   play() {
     this.beats.forEach((beat) => {
       beat.play();
