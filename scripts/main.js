@@ -57,3 +57,11 @@ function draw() {
     metronome.reset();
   }
 }
+
+function windowResized() {
+  resizeCanvas(window.innerWidth, window.innerHeight);
+  isPlaying = false;
+  player.resize();
+  metronome.resize();
+  metronome.getUpdateSpeed();
+}

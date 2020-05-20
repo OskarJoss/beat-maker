@@ -35,4 +35,10 @@ class Player {
       track.reset();
     });
   }
+
+  resize() {
+    this.tracks.forEach((track) => {
+      track.resize();
+    });
+  }
 }
