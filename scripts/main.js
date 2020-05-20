@@ -9,44 +9,31 @@ let selectedSoundIcon;
 
 let playPauseButton;
 
-//instanses of classes
+//instances of classes
 let player;
 let metronome;
 let soundIcons;
 
-function mousePressed() {
-  soundIcons.forEach((soundIcon) => {
-    soundIcon.clicked();
-  });
-
-  player.clicked();
-}
-
-function keyPressed() {
-  if (keyCode === 32) {
-    isPlaying = !isPlaying;
-  }
-}
-
-function togglePlaying() {
-  isPlaying = !isPlaying;
-}
-
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
-  fill(255);
+  fill(236, 236, 236);
   frameRate(FPS);
 
   setupColors();
   setupSoundIcons();
   setupAssets();
 
+  textAlign(CENTER, TOP);
+  textSize(65);
+  fill(122, 122, 122);
+  textFont("vibro");
+  text("beat-maker", width / 2, 30);
+
   player = new Player();
-  player.updateMetronome();
 
   noStroke();
   playPauseButton = createCheckbox("", false);
-  playPauseButton.position(width / 2 - 65, height / 2 - 65);
+  playPauseButton.position(width / 2 - 65, height - 195);
   playPauseButton.mousePressed(togglePlaying);
   metronome = new Metronome();
 }

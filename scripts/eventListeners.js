@@ -13,3 +13,7 @@ function keyPressed() {
     isPlaying = !isPlaying;
   }
 }
+
+function togglePlaying() {
+  isPlaying = !isPlaying;
+}
