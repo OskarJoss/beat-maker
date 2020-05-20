@@ -29,6 +29,9 @@ class Beat {
     stroke(255, 255, 255);
     strokeWeight(6);
     // rect(this.x, this.y, this.width, this.height);
+    if (this.containsSelectedSoundIcon()) {
+      this.div.style("background-color", "#ff0000");
+    }
   }
 
   clicked() {
@@ -39,12 +42,7 @@ class Beat {
       mouseY <= this.y + this.height &&
       selectedSoundIcon
     ) {
-      //check if selectedSoundIcon already has been added, in that case remove it.
-      if (
-        this.soundIcons.find(
-          (soundIcon) => soundIcon.assetKey === selectedSoundIcon.assetKey
-        )
-      ) {
+      if (this.containsSelectedSoundIcon()) {
         this.removeSoundIcon(selectedSoundIcon.assetKey);
       } else {
         this.soundIcons.push(selectedSoundIcon);
@@ -76,6 +74,18 @@ class Beat {
         }
       });
     }
+  }
+
+  containsSelectedSoundIcon() {
+    if (
+      this.soundIcons.find(
+        (soundIcon) => soundIcon.assetKey === selectedSoundIcon.assetKey
+      )
+    ) {
+      return true;
+    }
+
+    return false;
   }
 
   removeSoundIcon(assetKey) {

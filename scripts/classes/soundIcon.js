@@ -20,7 +20,7 @@ class SoundIcon {
       selectedSoundIcon = {
         assetKey: this.assetKey,
         assetName: assets[this.assetKey].name,
-        color: this.color,
+        assetIcon: assets[this.assetKey].icon,
       };
 
       assets[this.assetKey].audio.play();
