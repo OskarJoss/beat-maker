@@ -4,8 +4,8 @@ class Track {
   //numberOfBeats temporarily in constructor for testing
   constructor(offsetY, numberOfBeats) {
     this.height = 70;
-    this.width = width * 0.6;
-    this.offsetX = width * 0.2;
+    this.width = width * 0.7;
+    this.offsetX = width * 0.15;
     this.offsetY = offsetY;
     this.numberOfBeats = numberOfBeats;
     this.beatWidth = this.width / this.numberOfBeats;

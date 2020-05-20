@@ -6,7 +6,6 @@ input[type="checkbox"] {
   border: 8px solid #ececec;
   box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5),
     10px 10px 15px rgba(70, 70, 70, 0.12);
-  text-transform: uppercase;
   outline: none;
   background-color: #ececec;
   color: #7a7a7a;
@@ -31,5 +30,6 @@ input[type="checkbox"]:checked {
 }
 
 input[type="checkbox"]:checked:after {
-  content: "\f04c ";
+  /* content: "\f04c "; */
+  color: rgb(255, 140, 105);
 }
