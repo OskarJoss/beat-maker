@@ -10,6 +10,8 @@ class Beat {
     this.playedThisLoop = false;
     this.div = createDiv("");
     this.div.position(x + 5, y);
+    //test for displaying selectedSoundIcon on the beats
+    this.div2 = createDiv("yo").parent(this.div);
   }
 
   show() {
@@ -25,12 +27,13 @@ class Beat {
     }
     stroke(255, 255, 255);
     strokeWeight(6);
-    
-    // rect(this.x, this.y, this.width, this.height);
-    if (this.containsSelectedSoundIcon()) {
-      this.div.style("background-color", "#ff0000");
-    }
 
+    if (this.containsSelectedSoundIcon()) {
+      this.div2.show();
+    } else {
+      this.div2.hide();
+    }
+  }
 
   clicked() {
     if (

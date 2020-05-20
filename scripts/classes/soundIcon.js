@@ -23,7 +23,9 @@ class SoundIcon {
         assetIcon: assets[this.assetKey].icon,
       };
 
-      assets[this.assetKey].audio.play();
+      if (!isPlaying) {
+        assets[this.assetKey].audio.play();
+      }
     }
   }
 }
