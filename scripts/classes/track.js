@@ -60,18 +60,20 @@ class Track {
   }
 
   resize() {
-    this.width = width * 0.6;
-    this.offsetX = width * 0.2;
+    this.width = width * 0.7;
+    this.offsetX = width * 0.15;
     this.beatWidth = this.width / this.numberOfBeats;
 
     for (let i = 0; i < this.numberOfBeats; i++) {
+      const beat = this.beats[i];
       const posX = this.offsetX + this.beatWidth * i;
       const posY = this.offsetY;
 
-      this.beats[i].x = posX;
-      this.beats[i].y = posY;
-      this.beats[i].height = this.height;
-      this.beats[i].width = this.beatWidth;
+      beat.x = posX;
+      beat.y = posY;
+      beat.height = this.height;
+      beat.width = this.beatWidth;
+      beat.div.position(beat.x + 5, beat.y);
     }
   }
 }
