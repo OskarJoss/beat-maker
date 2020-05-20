@@ -1,7 +1,7 @@
 "use_strict";
 
 class Beat {
-  constructor(x, y, width, height, id) {
+  constructor(x, y, width, height) {
     this.x = x;
     this.y = y;
     this.height = height;
@@ -19,16 +19,12 @@ class Beat {
       metronome.x <= this.x + this.width &&
       isPlaying
     ) {
-      // fill(255, 140, 105);
       this.div.class("beat-active-step");
     } else {
-      // fill(236, 236, 236);
       this.div.class("beat-step");
     }
-    //if setupColors is changed to array, fill needs to be changed here
     stroke(255, 255, 255);
     strokeWeight(6);
-    // rect(this.x, this.y, this.width, this.height);
   }
 
   clicked() {
