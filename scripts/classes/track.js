@@ -58,4 +58,20 @@ class Track {
     //sets number of beats--, removes the last beat, updates the width and x of each beat.
     //also run player.updateMetronome here after change
   }
+
+  resize() {
+    this.width = width * 0.6;
+    this.offsetX = width * 0.2;
+    this.beatWidth = this.width / this.numberOfBeats;
+
+    for (let i = 0; i < this.numberOfBeats; i++) {
+      const posX = this.offsetX + this.beatWidth * i;
+      const posY = this.offsetY;
+
+      this.beats[i].x = posX;
+      this.beats[i].y = posY;
+      this.beats[i].height = this.height;
+      this.beats[i].width = this.beatWidth;
+    }
+  }
 }

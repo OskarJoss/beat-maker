@@ -31,4 +31,9 @@ class Metronome {
     //set the updatespeed to 2 decimals, too many decimals seems to be cause of sound lagging.
     this.updateSpeed = Math.round(updateSpeed * 100) / 100;
   }
+
+  resize() {
+    this.start = player.tracks[0].offsetX;
+    this.end = this.start + player.tracks[0].width;
+  }
 }
