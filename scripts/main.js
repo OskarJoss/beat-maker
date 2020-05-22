@@ -56,6 +56,8 @@ function setup() {
 }
 
 function draw() {
+  background(236, 236, 236);
+
   soundIcons.forEach((soundIcon) => {
     soundIcon.show();
   });
