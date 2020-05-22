@@ -3,7 +3,7 @@
 class Player {
   constructor() {
     //temporary constructor for Track
-    this.tracks = [new Track(100, 4), new Track(200, 16)];
+    this.tracks = [new Track(200, 4), new Track(300, 16)];
   }
 
   show() {

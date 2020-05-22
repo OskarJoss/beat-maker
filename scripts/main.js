@@ -10,12 +10,12 @@ let selectedSoundIcon;
 let playPauseButton;
 const playPauseButtonWidth = 130;
 const beatDivMargin = 5;
+let slider;
 
 //instances of classes
 let player;
 let metronome;
 let soundIcons;
-let slider;
 
 function togglePlaying() {
   isPlaying = !isPlaying;
@@ -44,15 +44,23 @@ function setup() {
   playPauseButton.mousePressed(togglePlaying);
 
   metronome = new Metronome();
-  // slider = new BpmSlider();
 
-  // slider
+  // BPM Slider
   slider = createSlider(10, 200, 140);
   slider.position(180, 80);
   displayBPM = createP();
   displayBPM.addClass("text");
   displayBPM.position(180, 5);
   slider.input(updateBPM);
+
+  // Sound icons
+  // All sound icons need to be children inside of flex wrapper
+
+  // soundIconsWrapper = createDiv("");
+  // soundIconsWrapper.addClass("flex-wrapper");
+  // let sounds = selectAll(".sound-icon");
+  // console.log(sounds);
+  // soundIconsWrapper.child(sounds);
 }
 
 function draw() {
@@ -63,7 +71,7 @@ function draw() {
   });
 
   player.show();
-  // slider.show();
+  slider.show();
 
   displayBPM.html("bpm: " + slider.value());
 

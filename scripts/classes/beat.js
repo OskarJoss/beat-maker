@@ -11,7 +11,7 @@ class Beat {
     this.div = createDiv("");
     this.div.position(x + beatDivMargin, y);
     this.text = createDiv("").parent(this.div);
-
+    this.text.addClass("sound-shortname");
   }
 
   show() {
@@ -29,7 +29,7 @@ class Beat {
     strokeWeight(6);
 
     if (this.containsSelectedSoundIcon()) {
-      this.text.html(selectedSoundIcon.assetName);
+      this.text.html(selectedSoundIcon.assetShortName);
     } else {
       this.text.html("");
     }
