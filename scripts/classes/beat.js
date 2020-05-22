@@ -9,8 +9,9 @@ class Beat {
     this.soundIcons = [];
     this.playedThisLoop = false;
     this.div = createDiv("");
-    this.div.position(x + 5, y);
+    this.div.position(x + beatDivMargin, y);
     this.text = createDiv("").parent(this.div);
+
   }
 
   show() {
