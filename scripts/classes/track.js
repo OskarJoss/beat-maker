@@ -3,9 +3,9 @@
 class Track {
   //numberOfBeats temporarily in constructor for testing
   constructor(offsetY, numberOfBeats) {
-    this.height = 70;
-    this.width = width * 0.7;
-    this.offsetX = width * 0.15;
+    this.height = 60;
+    this.width = width * 0.8;
+    this.offsetX = width * 0.1;
     this.offsetY = offsetY;
     this.numberOfBeats = numberOfBeats;
     this.beatWidth = this.width / this.numberOfBeats;
@@ -13,7 +13,7 @@ class Track {
 
     for (let i = 0; i < this.numberOfBeats; i++) {
       const posX = this.offsetX + this.beatWidth * i;
-      const posY = this.offsetY;
+      const posY = this.offsetY + 100;
 
       this.beats.push(new Beat(posX, posY, this.beatWidth, this.height));
     }

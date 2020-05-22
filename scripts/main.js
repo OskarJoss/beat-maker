@@ -1,18 +1,21 @@
 "use_strict";
 
 const FPS = 60;
+let bpm = 140;
 
 let assets = [];
 let isPlaying = false;
-let bpm = 140;
 let selectedSoundIcon;
 
 let playPauseButton;
+const playPauseButtonWidth = 130;
+const beatDivMargin = 5;
 
 //instances of classes
 let player;
 let metronome;
 let soundIcons;
+let slider;
 
 function togglePlaying() {
   isPlaying = !isPlaying;
@@ -27,19 +30,29 @@ function setup() {
   setupSoundIcons();
   setupAssets();
 
-  textAlign(CENTER, TOP);
-  textSize(65);
-  fill(122, 122, 122);
-  textFont("vibro");
-  text("beat-maker", width / 2, 30);
+  // Title
+  title = createElement("h1");
+  title.addClass("text");
+  title.html("beat-maker");
+  title.position(width - 410, 0);
 
   player = new Player();
 
   noStroke();
   playPauseButton = createCheckbox("", false);
-  playPauseButton.position(width / 2 - 65, height - 195);
+  playPauseButton.position(width / 2 - playPauseButtonWidth / 2, height - 195);
   playPauseButton.mousePressed(togglePlaying);
+
   metronome = new Metronome();
+  // slider = new BpmSlider();
+
+  // slider
+  slider = createSlider(10, 200, 140);
+  slider.position(180, 80);
+  displayBPM = createP();
+  displayBPM.addClass("text");
+  displayBPM.position(180, 5);
+  slider.input(updateBPM);
 }
 
 function draw() {
@@ -48,6 +61,9 @@ function draw() {
   });
 
   player.show();
+  // slider.show();
+
+  displayBPM.html("bpm: " + slider.value());
 
   if (isPlaying) {
     player.play();
@@ -64,4 +80,11 @@ function windowResized() {
   player.resize();
   metronome.resize();
   metronome.getUpdateSpeed();
+}
+
+function updateBPM() {
+  bpm = slider.value();
+  metronome.update();
+  metronome.getUpdateSpeed();
+  console.log(bpm);
 }
