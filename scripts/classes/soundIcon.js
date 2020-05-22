@@ -6,10 +6,14 @@ class SoundIcon {
     this.x = x;
     this.y = y;
     this.assetKey = assetKey;
+    // this.div = createDiv("");
+    // this.div.position(x, y);
+    // this.div.class("sound-icon");
     this.color = color;
   }
 
   show() {
+    // this.div.size(this.width, this.height);
     fill(this.color);
     noStroke();
     ellipse(this.x, this.y, this.size);
@@ -20,6 +24,7 @@ class SoundIcon {
       selectedSoundIcon = {
         assetKey: this.assetKey,
         assetName: assets[this.assetKey].name,
+        assetShortName: assets[this.assetKey].shortname,
         assetIcon: assets[this.assetKey].icon,
       };
 

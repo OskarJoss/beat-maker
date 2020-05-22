@@ -13,7 +13,7 @@ class Track {
 
     for (let i = 0; i < this.numberOfBeats; i++) {
       const posX = this.offsetX + this.beatWidth * i;
-      const posY = this.offsetY + 100;
+      const posY = this.offsetY;
 
       this.beats.push(new Beat(posX, posY, this.beatWidth, this.height));
     }
