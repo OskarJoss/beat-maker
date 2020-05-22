@@ -10,8 +10,7 @@ class Beat {
     this.playedThisLoop = false;
     this.div = createDiv("");
     this.div.position(x + 5, y);
-    //test for displaying selectedSoundIcon on the beats
-    this.div2 = createDiv("yo").parent(this.div);
+    this.text = createDiv("").parent(this.div);
   }
 
   show() {
@@ -29,9 +28,9 @@ class Beat {
     strokeWeight(6);
 
     if (this.containsSelectedSoundIcon()) {
-      this.div2.show();
+      this.text.html(selectedSoundIcon.assetName);
     } else {
-      this.div2.hide();
+      this.text.html("");
     }
   }
 
