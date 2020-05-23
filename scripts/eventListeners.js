@@ -18,11 +18,11 @@ function keyPressed() {
   }
 
   if (keyCode === 83) {
-    //save
+    saveLoop();
   }
 
   if (keyCode === 76) {
-    //load
+    loadLoop();
   }
 }
 
