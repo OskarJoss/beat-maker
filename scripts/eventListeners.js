@@ -18,11 +18,15 @@ function keyPressed() {
   }
 
   if (keyCode === 83) {
-    saveLoop();
+    loadDiv.hide();
+    saveDiv.show();
+    // saveLoop();
   }
 
   if (keyCode === 76) {
-    loadLoop();
+    saveDiv.hide();
+    loadDiv.show();
+    // loadLoop();
   }
 }
 
