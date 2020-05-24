@@ -78,6 +78,10 @@ class Beat {
   }
 
   containsSelectedSoundIcon() {
+    if (!selectedSoundIcon) {
+      return;
+    }
+
     if (
       this.soundIcons.find(
         (soundIcon) => soundIcon.assetKey === selectedSoundIcon.assetKey

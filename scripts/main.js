@@ -11,6 +11,8 @@ let playPauseButton;
 const playPauseButtonWidth = 130;
 const beatDivMargin = 5;
 let slider;
+let saveDiv;
+let loadDiv;
 
 //instances of classes
 let player;
@@ -61,6 +63,8 @@ function setup() {
   // let sounds = selectAll(".sound-icon");
   // console.log(sounds);
   // soundIconsWrapper.child(sounds);
+
+  setupSaveAndLoadDivs();
 }
 
 function draw() {
