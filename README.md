@@ -23,9 +23,14 @@ A game where you can make drum loops
 
 
 ## Testers with programming skills
+- [Victor Ljungblad](https://github.com/Ljungblad)
+- [Julia Karlsson](https://github.com/Juljulia)
+- [Emelie Petersson](https://github.com/emeliepetersson)
 
 
 ## Testers without programming skills
 
 - Emelie Ivarsson
 - Love Joss
+- Sara Samuelsson
+- Maja Berneman
