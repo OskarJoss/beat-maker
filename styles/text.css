@@ -11,6 +11,8 @@ h1 {
   text-shadow: 2px 2px 0 rgba(70, 70, 70, 0.12),
     -1px -1px 0 rgba(70, 70, 70, 0.12), 1px -1px 0 rgba(70, 70, 70, 0.12),
     -1px 1px 0 rgba(70, 70, 70, 0.12), 1px 1px 0 rgba(70, 70, 70, 0.12);
+  align-self: flex-end;
+  margin-right: 10vw;
 }
 
 p {

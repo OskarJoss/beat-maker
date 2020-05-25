@@ -1,36 +1,31 @@
 "use_strict";
 
 class SoundIcon {
-  constructor(x, y, size, assetKey, color) {
-    this.size = size;
-    this.x = x;
-    this.y = y;
+  constructor(assetKey) {
     this.assetKey = assetKey;
-    // this.div = createDiv("");
-    // this.div.position(x, y);
-    // this.div.class("sound-icon");
-    this.color = color;
+    this.div = createDiv("");
+    this.div.addClass("sound-icon");
+    this.div.parent(soundIconsWrapper);
+    this.div.mouseClicked(this.clicked);
   }
 
-  show() {
-    // this.div.size(this.width, this.height);
-    fill(this.color);
-    noStroke();
-    ellipse(this.x, this.y, this.size);
-  }
+  clicked = () => {
+    selectedSoundIcon = {
+      assetKey: this.assetKey,
+      assetName: assets[this.assetKey].name,
+      assetShortName: assets[this.assetKey].shortname,
+    };
 
-  clicked() {
-    if (dist(this.x, this.y, mouseX, mouseY) <= this.size / 2) {
-      selectedSoundIcon = {
-        assetKey: this.assetKey,
-        assetName: assets[this.assetKey].name,
-        assetShortName: assets[this.assetKey].shortname,
-        assetIcon: assets[this.assetKey].icon,
-      };
-
-      if (!isPlaying) {
-        assets[this.assetKey].audio.play();
-      }
+    if (!isPlaying) {
+      console.log(this);
+      assets[this.assetKey].audio.play();
     }
-  }
+
+    soundIcons.forEach((soundIcon) => {
+      soundIcon.div.removeClass("active");
+    });
+    this.div.addClass("active");
+
+    soundIconToolTip.html(assets[this.assetKey].name);
+  };
 }

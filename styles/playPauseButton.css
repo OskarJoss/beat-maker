@@ -23,17 +23,8 @@ input[type="checkbox"]::after {
 }
 
 input[type="checkbox"]:checked {
-  /* box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5),
-    10px 10px 15px rgba(70, 70, 70, 0.12),
-    inset -10px -10px 15px rgba(255, 255, 255, 0.5),
-    inset 10px 10px 15px rgba(70, 70, 70, 0.12); */
   box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5),
     10px 10px 15px rgba(70, 70, 70, 0.12),
     inset 0 2px 12px 10px rgba(70, 70, 70, 0.2);
   background-color: rgb(255, 140, 105);
-}
-
-input[type="checkbox"]:checked:after {
-  /* content: "\f04c "; */
-  /* color: #ececec; */
 }

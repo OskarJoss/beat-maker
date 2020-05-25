@@ -5,7 +5,11 @@ let bpm = 140;
 
 let assets = [];
 let isPlaying = false;
+let bottomContainer;
+let topContainer;
+let soundIconsWrapper;
 let selectedSoundIcon;
+let soundIconToolTip;
 
 let playPauseButton;
 const playPauseButtonWidth = 130;
@@ -29,50 +33,48 @@ function setup() {
   frameRate(FPS);
 
   setupColors();
-  setupSoundIcons();
   setupAssets();
 
-  // Title
-  title = createElement("h1");
-  title.addClass("text");
-  title.html("beat-maker");
-  title.position(width - 410, 0);
+  // Sound icons
+  bottomContainer = createDiv("");
+  bottomContainer.addClass("flex-container");
+  soundIconToolTip = createDiv("").parent(bottomContainer);
+  soundIconToolTip.addClass("tooltip");
+  soundIconsWrapper = createDiv("").parent(bottomContainer);
+  soundIconsWrapper.addClass("wrapper");
+  soundIconsWrapper.size(width * 0.8, 120);
+  setupSoundIcons();
+
+  topContainer = createDiv("");
+  topContainer.addClass("top-container");
 
   player = new Player();
 
   noStroke();
   playPauseButton = createCheckbox("", false);
-  playPauseButton.position(width / 2 - playPauseButtonWidth / 2, height - 195);
+  playPauseButton.position(width / 2 - playPauseButtonWidth / 2, height / 2);
   playPauseButton.mousePressed(togglePlaying);
 
   metronome = new Metronome();
 
   // BPM Slider
-  slider = createSlider(10, 200, 140);
+  slider = createSlider(10, 200, 140).parent(topContainer);
   slider.position(180, 80);
-  displayBPM = createP();
+  displayBPM = createP().parent(topContainer);
   displayBPM.addClass("text");
   displayBPM.position(180, 5);
   slider.input(updateBPM);
 
-  // Sound icons
-  // All sound icons need to be children inside of flex wrapper
-
-  // soundIconsWrapper = createDiv("");
-  // soundIconsWrapper.addClass("flex-wrapper");
-  // let sounds = selectAll(".sound-icon");
-  // console.log(sounds);
-  // soundIconsWrapper.child(sounds);
+  // Title
+  title = createElement("h1").parent(topContainer);
+  title.addClass("text");
+  title.html("beat-maker");
 
   setupSaveAndLoadDivs();
 }
 
 function draw() {
   background(236, 236, 236);
-
-  soundIcons.forEach((soundIcon) => {
-    soundIcon.show();
-  });
 
   player.show();
   slider.show();
