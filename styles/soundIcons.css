@@ -1,18 +1,51 @@
-.flex-wrapper {
+.flex-container {
+  width: 100vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+}
+
+.wrapper {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
-  background-color: pink;
-  width: 50vw;
-  height: 20vh;
-  z-index: 10;
+  margin: 0 5vw 5vh;
 }
 
 .sound-icon {
-  background-color: #e9e9e9;
-  border: 5px solid #ececec;
+  background-color: #dbdbdb;
+  border: 5px solid #e0e0e0;
   border-radius: 16px;
   box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5),
-    10px 10px 15px rgba(70, 70, 70, 0.12);
+    10px 10px 10px rgba(70, 70, 70, 0.12);
+  width: 5vw;
+  height: 5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sound-icon::after {
+  font-family: "Font Awesome 5 Free";
+  content: "\f569 ";
+  font-size: 1.8em;
+}
+
+.tooltip {
+  z-index: 10;
+  width: 80vw;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+}
+
+.active {
+  background-color: rgb(255, 140, 105);
 }
